@@ -1,0 +1,45 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ========================
+# Virtual Environment
+# ========================
+venv/
+env/
+.env
+*.env
+
+# ========================
+# Uploaded Images (user uploads at runtime)
+# ========================
+uploads/*
+!uploads/.gitkeep
+
+# ========================
+# Dataset (too large for GitHub — use Git LFS or share separately)
+# ========================
+dataset/
+
+# ========================
+# IDE / OS
+# ========================
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# ========================
+# Logs
+# ========================
+*.log
+pip_list.txt

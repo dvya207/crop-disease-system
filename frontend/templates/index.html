@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Crop Disease Detection</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    font-family:"Segoe UI", sans-serif;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    background:linear-gradient(120deg,#1b5e20,#66bb6a);
+    display:flex;
+}
+
+/* LEFT HERO PANEL */
+.hero{
+    flex:1;
+    padding:60px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hero h1{
+    font-size:42px;
+    line-height:1.2;
+}
+
+.hero p{
+    font-size:18px;
+    margin-top:15px;
+    opacity:0.95;
+}
+
+.features{
+    margin-top:30px;
+}
+
+.features li{
+    margin-bottom:12px;
+    font-size:16px;
+}
+
+/* RIGHT FORM PANEL */
+.form-area{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+}
+
+.form-box{
+    background:white;
+    width:420px;
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+.form-box h2{
+    margin-top:0;
+    color:#2e7d32;
+    text-align:center;
+}
+
+/* FORM */
+label{
+    font-weight:600;
+    margin-top:14px;
+    display:block;
+}
+
+input, select{
+    width:100%;
+    padding:11px;
+    margin-top:6px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+input:focus, select:focus{
+    border-color:#2e7d32;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    background:linear-gradient(135deg,#2e7d32,#66bb6a);
+    border:none;
+    color:white;
+    font-size:16px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.footer{
+    text-align:center;
+    margin-top:15px;
+    font-size:13px;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LEFT -->
+<div class="hero">
+    <h1>AI-Powered<br>Crop Disease Detection</h1>
+    <p>
+        Upload a crop leaf image and get instant disease
+        detection, severity analysis, and expert recommendations
+        powered by deep learning.
+    </p>
+
+    <ul class="features">
+        <li>🌿 Multi-crop disease detection</li>
+        <li>🧠 CNN-based deep learning model</li>
+        <li>📊 Severity & category analysis</li>
+        <li>🌾 Soil-based recommendations</li>
+    </ul>
+</div>
+
+<!-- RIGHT -->
+<div class="form-area">
+    <div class="form-box">
+        <h2>🌱 Start Analysis</h2>
+
+        <form action="/predict-ui" method="post" enctype="multipart/form-data">
+
+            <label>Crop Type</label>
+            <select name="crop" required>
+                <option value="cotton">Cotton</option>
+                <option value="rice">Rice</option>
+                <option value="maize">Maize</option>
+                <option value="wheat">Wheat</option>
+                <option value="sugarcane">Sugarcane</option>
+            </select>
+
+            <label>Leaf Image</label>
+            <input type="file" name="image" accept="image/*" required>
+
+            <label>Soil pH</label>
+            <input type="number" step="0.1" name="ph" placeholder="Eg: 6.5" required>
+
+            <label>NPK Ratio</label>
+            <input type="text" name="npk" placeholder="Eg: 20-10-10" required>
+
+            <label>Soil Moisture (%)</label>
+            <input type="number" step="0.1" name="moisture" placeholder="Eg: 45" required>
+
+            <button type="submit" id="analyzeBtn">🔍 Analyze Crop</button>
+        </form>
+
+        <div id="loadingMsg" style="display:none;text-align:center;margin-top:18px;">
+            <div style="font-size:28px;">⏳</div>
+            <p style="color:#2e7d32;font-weight:600;margin:6px 0;">Analyzing crop leaf...</p>
+            <p style="color:#888;font-size:13px;">This may take 15–30 seconds on first run.<br>Please wait, do not refresh.</p>
+        </div>
+
+        <script>
+          document.querySelector("form").addEventListener("submit", function() {
+            var btn = document.getElementById("analyzeBtn");
+            var msg = document.getElementById("loadingMsg");
+            btn.disabled = true;
+            btn.textContent = "⏳ Analyzing...";
+            btn.style.opacity = "0.7";
+            msg.style.display = "block";
+          });
+        </script>
+
+        <div class="footer">
+            Smart Agriculture using AI 🌾
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

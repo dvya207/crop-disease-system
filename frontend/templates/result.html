@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef3f2;
+            padding: 30px;
+        }
+        .box {
+            max-width: 550px;
+            background: white;
+            padding: 25px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #2e7d32;
+        }
+        .healthy {
+            color: green;
+            font-weight: bold;
+        }
+        .diseased {
+            color: red;
+            font-weight: bold;
+        }
+        .section {
+            margin-top: 15px;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 5px;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <h2>🌿 Prediction Result</h2>
+
+    <!-- Basic Result -->
+    <p><b>Crop:</b> {{ result.crop }}</p>
+
+    <p><b>Status:</b>
+        {% if result.status == "Healthy" %}
+            <span class="healthy">Healthy</span>
+        {% else %}
+            <span class="diseased">Diseased</span>
+        {% endif %}
+    </p>
+
+    <p><b>Disease:</b> {{ result.disease }}</p>
+    <p><b>Confidence:</b> {{ result.confidence }} %</p>
+
+    <hr>
+
+    <!-- Soil Condition -->
+    <div class="section">
+        <div class="section-title">🌱 Soil Condition</div>
+        <p>{{ recommendation.soil_condition }}</p>
+    </div>
+
+    <!-- Treatment -->
+    <div class="section">
+        <div class="section-title">💊 Treatment Recommendation</div>
+        <p>{{ recommendation.treatment }}</p>
+    </div>
+
+    <!-- Fertilizer -->
+    <div class="section">
+        <div class="section-title">🧪 Fertilizer & Soil Improvement</div>
+        <p>{{ recommendation.fertilizer }}</p>
+    </div>
+
+    <!-- Next Crop -->
+    <div class="section">
+        <div class="section-title">🌾 Recommended Crops for Next Year</div>
+        <p>{{ recommendation.next_crop_recommendation }}</p>
+    </div>
+
+    <a href="/">🔙 Try another image</a>
+</div>
+</body>
+</html>

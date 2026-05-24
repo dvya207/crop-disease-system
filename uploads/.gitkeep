@@ -1,0 +1,2 @@
+# This folder stores uploaded crop images at runtime.
+# The actual images are gitignored — only this file is tracked.

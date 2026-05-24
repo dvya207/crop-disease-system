@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Crop Disease Dashboard</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", sans-serif;
+    background:#f4f8f5;
+}
+
+/* Layout */
+.container{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    background:linear-gradient(180deg,#2e7d32,#1b5e20);
+    color:white;
+    padding:25px;
+}
+
+.weather-box{
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+}
+
+.weather-box h1{
+    font-size:46px;
+    margin:10px 0;
+}
+
+/* Main */
+.main{
+    padding:25px;
+    overflow-y:auto;
+}
+
+/* KPI cards */
+.kpis{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.kpi{
+    background:#fff;
+    padding:18px;
+    border-radius:16px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.kpi h2{
+    margin:0;
+    color:#2e7d32;
+}
+
+.kpi p{
+    margin-top:5px;
+    color:#666;
+}
+
+/* Content grid */
+.grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+    margin-top:25px;
+}
+
+.card{
+    background:#fff;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* Severity */
+.severity{
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    display:inline-block;
+}
+.high{background:#f8d7da;color:#721c24;}
+.medium{background:#fff3cd;color:#856404;}
+.low{background:#c8e6c9;color:#1b5e20;}
+
+img{
+    width:100%;
+    border-radius:15px;
+    margin-top:10px;
+}
+
+/* Try Again Button */
+.try-again{
+    text-align:center;
+    margin-top:30px;
+}
+
+.try-again a{
+    display:inline-block;
+    padding:14px 30px;
+    background:linear-gradient(135deg,#2e7d32,#43a047);
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+    border-radius:30px;
+    transition:all 0.3s ease;
+}
+
+.try-again a:hover{
+    background:linear-gradient(135deg,#1b5e20,#2e7d32);
+    transform:translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LEFT PANEL -->
+<div class="sidebar">
+    <div class="weather-box">
+        <h1>{{ weather.temp }}</h1>
+        <p>Humidity: {{ weather.humidity }}</p>
+        <p>Rain Chance: {{ weather.rain }}</p>
+    </div>
+</div>
+
+<!-- RIGHT PANEL -->
+<div class="main">
+
+    <!-- KPI SECTION -->
+    <div class="kpis">
+        <div class="kpi">
+            <h2>{{ crop }}</h2>
+            <p>Crop Selected</p>
+        </div>
+        <div class="kpi">
+            <h2>{{ confidence }}%</h2>
+            <p>Prediction Confidence</p>
+        </div>
+        <div class="kpi">
+            <h2>{{ severity }}</h2>
+            <p>Severity Level</p>
+        </div>
+        <div class="kpi">
+            <h2>{{ category }}</h2>
+            <p>Disease Category</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="grid">
+
+        <!-- LEFT CARD -->
+        <div class="card">
+            <h3>Crop Health Analysis</h3>
+            <img src="{{ image_url }}" alt="Leaf Image">
+
+            <p><strong>Disease:</strong> {{ disease }}</p>
+
+            <p>
+                <span class="severity {{ severity|lower }}">
+                    {{ severity }}
+                </span>
+            </p>
+
+            <p style="margin-top:10px;">
+                <strong>Explanation:</strong><br>
+                {{ explanation }}
+            </p>
+        </div>
+
+        <!-- RIGHT CARD -->
+        <div class="card">
+            <h3>Soil Health</h3>
+            <ul>
+                <li><strong>pH:</strong> {{ soil.ph }}</li>
+                <li><strong>NPK:</strong> {{ soil.npk }}</li>
+                <li><strong>Moisture:</strong> {{ soil.moisture }}%</li>
+            </ul>
+
+            <h3 style="margin-top:20px;">Recommended Action</h3>
+            <ul>
+                <li><strong>Soil Condition:</strong> {{ recommendation.soil_condition }}</li>
+                <li><strong>Treatment:</strong> {{ recommendation.treatment }}</li>
+                <li><strong>Fertilizer:</strong> {{ recommendation.fertilizer }}</li>
+                <li><strong>Next Crop:</strong> {{ recommendation.next_crop }}</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- TRY NEW ANALYSIS BUTTON -->
+    <div class="try-again">
+        <a href="/">🌱 Try New Analysis</a>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
