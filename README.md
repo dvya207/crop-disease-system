@@ -29,25 +29,34 @@ An AI-powered web application that detects crop diseases from leaf images using 
 | Frontend | HTML + CSS (Jinja2 templates) |
 
 ## Project Structure
-crop_disease_system/
-├── backend/
-│   ├── app.py              # FastAPI server & routes
-│   ├── predict.py          # ML inference + model caching
-│   ├── preprocess.py       # Image preprocessing
-│   ├── recommendation.py   # Soil & treatment logic
-│   └── weather.py          # Live weather API
-├── models/
-│   ├── cotton_model.h5
-│   ├── maize_model.h5
-│   ├── rice_model.h5
-│   ├── sugarcane_model.h5
-│   └── wheat_model.h5     (+ *_classes.json files)
-├── frontend/
-│   ├── templates/          # index.html, dashboard.html
-│   └── static/css/
-├── uploads/                # Runtime image uploads (gitignored)
-├── requirements.txt
-└── README.md
+📁 crop_disease_system
+├── 📁 backend
+│   ├── 📄 app.py              # FastAPI server & routes
+│   ├── 📄 predict.py          # ML inference + model caching
+│   ├── 📄 preprocess.py       # Image preprocessing
+│   ├── 📄 recommendation.py   # Soil & treatment logic
+│   └── 📄 weather.py          # Live weather API
+│
+├── 📁 models
+│   ├── 📄 cotton_model.h5
+│   ├── 📄 maize_model.h5
+│   ├── 📄 rice_model.h5
+│   ├── 📄 sugarcane_model.h5
+│   ├── 📄 wheat_model.h5
+│   └── 📄 *_classes.json
+│
+├── 📁 frontend
+│   ├── 📁 templates
+│   │   ├── 📄 index.html
+│   │   └── 📄 dashboard.html
+│   └── 📁 static
+│       └── 📁 css
+│
+├── 📁 uploads
+│   └── 📄 Runtime image uploads (gitignored)
+│
+├── 📄 requirements.txt
+└── 📄 README.md
 
 ## Installation & Setup
 
