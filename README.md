@@ -6,9 +6,8 @@ An AI-powered web application that detects crop diseases from leaf images using 
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
 
----
 
-## 🚀 Features
+## Features
 
 - 🧠 **CNN-based disease detection** for 5 crops (Cotton, Rice, Maize, Wheat, Sugarcane)
 - 📊 **Severity analysis** — Low / Medium / High
@@ -17,9 +16,8 @@ An AI-powered web application that detects crop diseases from leaf images using 
 - 💊 **Treatment recommendations** based on disease category
 - 🌾 **Next crop suggestions** based on soil condition
 
----
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -30,11 +28,7 @@ An AI-powered web application that detects crop diseases from leaf images using 
 | Weather API | OpenWeatherMap |
 | Frontend | HTML + CSS (Jinja2 templates) |
 
----
-
-## 📁 Project Structure
-
-```
+## Project Structure
 crop_disease_system/
 ├── backend/
 │   ├── app.py              # FastAPI server & routes
@@ -54,22 +48,17 @@ crop_disease_system/
 ├── uploads/                # Runtime image uploads (gitignored)
 ├── requirements.txt
 └── README.md
-```
 
----
-
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/YOUR_USERNAME/crop-disease-system.git
 cd crop-disease-system
-```
 
 ### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
-```
 
 ### 3. Run the server
 ```bash
@@ -80,10 +69,7 @@ uvicorn backend.app:app --reload
 ```
 http://127.0.0.1:8000
 ```
-
----
-
-## 🌿 Supported Crops & Diseases
+## Supported Crops & Diseases
 
 | Crop | Diseases Detected |
 |------|------------------|
@@ -93,9 +79,7 @@ http://127.0.0.1:8000
 | **Wheat** | Black Rust, Yellow Rust, Powdery Mildew, Smut, Aphid |
 | **Sugarcane** | Mosaic, Red Rot, Red Rust, Yellow Rust |
 
----
-
-## 📦 Requirements
+## Requirements
 
 ```
 tensorflow
@@ -107,9 +91,6 @@ python-multipart
 pillow
 jinja2
 requests
-```
-
----
 
 ## 📸 How to Use
 
@@ -119,16 +100,8 @@ requests
 4. Click **Analyze Crop**
 5. Get instant results on the dashboard
 
----
-
 ## ⚠️ Notes
 
 - The `dataset/` folder is excluded from this repo (too large). The **pre-trained `.h5` models** are included and ready to use.
 - Weather is currently hardcoded to **Bangalore**. You can change the city in `backend/weather.py`.
 - Models are **cached in memory** after first load — subsequent predictions are instant.
-
----
-
-## 📄 License
-
-MIT License — free to use and modify.
